@@ -1,1 +1,0 @@
-mkdir -p ~/linux_p2 && for i in {1..20}; do dd if=/dev/urandom of=~/linux_p2/$i.txt bs=1M count=1 status=none; done
