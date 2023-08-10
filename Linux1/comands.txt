@@ -1,0 +1,24 @@
+touch test_file.txt
+mkdir copy move
+cp test_file.txt/home ./copy
+mv test_file.txt  ./move
+chmod 777 test_file
+chown ec2-user test_file.txt
+rm test_file
+sudo yum install mc
+sudo yum install git
+sudo yum install htop
+sudo yum install nano
+sudo yum install curl
+sudo yum install wget
+sudo amazon-linux-extras install ansible2
+sudo yum install ncdu
+sudo yum install httpd
+ps -d
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo yum install stress
+stress --cpu 1
+stress --vm 1 --vm-bytes 256M
+sudo yum install htop
+htop 3655
