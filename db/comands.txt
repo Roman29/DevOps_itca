@@ -1,0 +1,33 @@
+sudo yum update -y
+sudo dnf install postgresql15.x86_64 postgresql15-server
+sudo postgresql-setup --initdb
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+sudo -i -u postgres
+psql
+CREATE DATABASE itca;
+CREATE USER student WITH PASSWORD '123456789' SUPERUSER;
+\q
+psql -U student -d itca
+CREATE SCHEMA devops4;
+
+CREATE TABLE devops4.table1 (
+    id serial PRIMARY KEY,
+    name varchar(255)
+);
+
+CREATE TABLE devops4.table2 (
+    id serial PRIMARY KEY,
+    data text
+);
+INSERT INTO devops4.table1 (name) VALUES ('John');
+INSERT INTO devops4.table1 (name) VALUES ('Jane');
+INSERT INTO devops4.table2 (data) VALUES ('Lorem ipsum');
+INSERT INTO devops4.table2 (data) VALUES ('Dolor sit amet');
+\q
+psql -U student -d itca
+SET search_path TO devops4;
+SELECT * FROM table1;
+SELECT * FROM table2;
+\q
+exit
